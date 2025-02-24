@@ -36,11 +36,6 @@ func (l *Launcher) startServerProcess(name string, args ...string) error {
 		return err
 	}
 
-	err = filepathcheck.IsValid(strings.Join(args, " "))
-	if err != nil {
-		return err
-	}
-
 	cmd := exec.Command(bin, args...)
 	cmd.SysProcAttr = &syscall.SysProcAttr{
 		HideWindow: true,
